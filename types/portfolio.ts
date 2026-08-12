@@ -6,6 +6,7 @@ export interface Project {
   featured?: boolean;
   client?: string;
   year?: string;
+  image?: string;
   repository?: string;
   liveUrl?: string;
 }

@@ -7,44 +7,49 @@ import { profile } from "@/data/profile";
 
 export function Navbar() {
   const [isDark, setIsDark] = useState(false);
+  const [isThemeReady, setIsThemeReady] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
+ useEffect(() => {
+  const savedTheme = localStorage.getItem("theme");
 
-    if (savedTheme) {
-      setIsDark(savedTheme === "dark");
-      document.documentElement.dataset.theme = savedTheme;
-    } else {
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
+  let theme: "dark" | "light";
 
-      setIsDark(prefersDark);
-      document.documentElement.dataset.theme = prefersDark
-        ? "dark"
-        : "light";
-    }
+  if (savedTheme === "dark" || savedTheme === "light") {
+    theme = savedTheme;
+  } else {
+    theme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches
+      ? "dark"
+      : "light";
+  }
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 8);
-    };
+  document.documentElement.dataset.theme = theme;
+  setIsDark(theme === "dark");
+  setIsThemeReady(true);
 
-    window.addEventListener("scroll", handleScroll);
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 8);
+  };
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  handleScroll();
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
 
   const toggleTheme = () => {
-    const nextTheme = isDark ? "light" : "dark";
+  const nextTheme = isDark ? "light" : "dark";
 
-    setIsDark(!isDark);
-    document.documentElement.dataset.theme = nextTheme;
-    localStorage.setItem("theme", nextTheme);
-  };
+  document.documentElement.dataset.theme = nextTheme;
+  localStorage.setItem("theme", nextTheme);
+  setIsDark(nextTheme === "dark");
+};
 
   const toggleMenu = () => {
     setIsMenuOpen((previous) => !previous);
@@ -97,22 +102,22 @@ export function Navbar() {
           {/* Actions */}
           <div className="flex items-center gap-3">
             {/* Theme */}
-            <button
-              type="button"
-              onClick={toggleTheme}
-              aria-label={
-                isDark
-                  ? "Switch to light theme"
-                  : "Switch to dark theme"
-              }
-              className="grid size-11 place-items-center rounded-md text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
-            >
-              {isDark ? (
-                <Sun size={18} strokeWidth={1.6} />
-              ) : (
-                <Moon size={18} strokeWidth={1.6} />
-              )}
-            </button>
+<button
+  type="button"
+  onClick={toggleTheme}
+  aria-label={
+    isDark
+      ? "Switch to light theme"
+      : "Switch to dark theme"
+  }
+  className="relative z-[60] grid size-11 place-items-center rounded-md text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
+>
+  {isDark ? (
+    <Sun size={18} strokeWidth={1.6} />
+  ) : (
+    <Moon size={18} strokeWidth={1.6} />
+  )}
+</button>
 
             {/* Let's Talk */}
             <a

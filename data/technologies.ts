@@ -12,18 +12,6 @@ export const technologies = [
     category: "Frontend",
   },
   {
-    name: "TypeScript",
-    category: "Frontend",
-  },
-  {
-    name: "React",
-    category: "Frontend",
-  },
-  {
-    name: "Next.js",
-    category: "Frontend",
-  },
-  {
     name: "Tailwind CSS",
     category: "Frontend",
   },

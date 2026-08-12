@@ -1,5 +1,5 @@
 export const profile = {
-  name: "Raja",
+  name: "Raja Gustav",
   roleBadge: "Fullstack Web Developer",
   headline: "I build web systems that real organizations run on.",
   intro:
@@ -14,7 +14,7 @@ export const profile = {
     "Currently learning: Next.js, TypeScript, Laravel, Flutter & AI.",
   ],
 
-  email: "rjagustavv@email.com",
+  email: "rjagustavv@gmail.com",
 
   social: {
     github: "https://github.com/rjagustavv",
