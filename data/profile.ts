@@ -11,7 +11,7 @@ export const profile = {
     "I'm Raja, a software developer and student passionate about building digital products that are simple, functional, and meaningful.",
     "I started my journey in software development by learning web technologies and gradually exploring backend and mobile development.",
     "I'm currently focused on improving my skills in modern web development, exploring new technologies, and turning ideas into real-world products.",
-    "Currently learning: Next.js, TypeScript, Laravel, Flutter & AI.",
+    "Currently learning: Next.js, TypeScript, Laravel, AI.",
   ],
 
   email: "rjagustavv@gmail.com",
