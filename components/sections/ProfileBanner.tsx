@@ -11,7 +11,7 @@ export function ProfileBanner() {
           {/* Profile Image */}
           <div className="relative min-h-[420px] overflow-hidden bg-[var(--paper)] sm:min-h-[500px] lg:min-h-[560px]">
             <Image
-              src="/images/profile.webp"
+              src="/images/profiless.webp"
               alt={`${profile.name} profile`}
               fill
               priority
