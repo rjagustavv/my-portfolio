@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 import { Hero } from "@/components/sections/Hero";
+import { ProfileBanner } from "@/components/sections/ProfileBanner";
 import { About } from "@/components/sections/About";
 import { Stack } from "@/components/sections/Stack";
 import { Projects } from "@/components/sections/Projects";
@@ -14,13 +15,14 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <Hero />
-        <About />
-        <Stack />
-        <Projects/>
-        <Experience/>
-        <Contact/>
-      </main>
+  <Hero />
+  <ProfileBanner />
+  <About />
+  <Stack />
+  <Projects />
+  <Experience />
+  <Contact />
+</main>
       <Footer />
     </>
   );
